@@ -4,165 +4,363 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#10233f">
-<title>Weber's Industrial Empire</title>
+<title>Weber's Industrial Empire - Edisi Dipertingkat</title>
 <style>
-:root{--navy:#10233f;--navy2:#18385d;--gold:#ffc857;--sky:#6bd4ef;--green:#64d69a;--paper:#f3f7fb;--ink:#172b45;--muted:#61738b;--line:#dbe5ef}
-*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#e7f0f8,#f7f9fc);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink)}
-button{font:inherit;cursor:pointer}.top{background:linear-gradient(120deg,#10233f,#1d4974);color:white;padding:18px clamp(14px,4vw,42px);display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;box-shadow:0 8px 24px #10233f25}
-.brand{display:flex;gap:13px;align-items:center}.brand-icon{width:52px;height:52px;border-radius:16px;background:#ffc857;color:#17304d;display:grid;place-items:center;font-size:28px;box-shadow:inset 0 -4px #d99d2e}.brand h1{font-size:clamp(20px,3vw,29px);line-height:1.05;margin:0;color:#ffdc80}.brand p{margin:5px 0 0;color:#d8e7f6;font-size:12px}.topstats{display:flex;gap:9px;flex-wrap:wrap}.pill{background:#ffffff16;border:1px solid #ffffff2b;padding:9px 13px;border-radius:12px;min-width:95px}.pill small{display:block;color:#bcd0e5;font-size:10px;text-transform:uppercase;letter-spacing:.08em}.pill b{font-size:17px}
-.wrap{max-width:1200px;margin:22px auto;padding:0 16px 40px}.intro{display:flex;justify-content:space-between;gap:15px;align-items:flex-start;margin-bottom:16px}.intro h2{margin:0 0 5px;font-size:22px}.intro p{margin:0;color:var(--muted);line-height:1.5}.roundtag{background:#fff;border:1px solid var(--line);border-radius:99px;padding:8px 13px;font-weight:700;color:var(--navy);white-space:nowrap}
-.grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(260px,.8fr);gap:16px}.panel{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 8px 25px #17365d0b;overflow:hidden}.panelhead{padding:15px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px}.panelhead h3{margin:0;font-size:16px}.panelhead span{color:var(--muted);font-size:12px}.map{position:relative;min-height:400px;overflow:hidden;background:linear-gradient(145deg,#d8edce,#b9d9bd 55%,#d7e9d7)}
+:root{--navy:#10233f;--navy2:#18385d;--gold:#ffc857;--sky:#6bd4ef;--green:#64d69a;--paper:#f3f7fb;--ink:#172b45;--muted:#61738b;--line:#dbe5ef;--danger:#ff6b6b}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#e7f0f8,#f7f9fc);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);min-height:100vh}
+button{font:inherit;cursor:pointer}
+.top{background:linear-gradient(120deg,#10233f,#1d4974);color:white;padding:18px clamp(14px,4vw,42px);display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;box-shadow:0 8px 24px #10233f25}
+.brand{display:flex;gap:13px;align-items:center}.brand-icon{width:52px;height:52px;border-radius:16px;background:#ffc857;color:#17304d;display:grid;place-items:center;font-size:28px;box-shadow:inset 0 -4px #d99d2e}
+.brand h1{font-size:clamp(18px,2.5vw,26px);line-height:1.05;margin:0;color:#ffdc80}
+.brand p{margin:4px 0 0;color:#d8e7f6;font-size:11px}
+.topstats{display:flex;gap:9px;flex-wrap:wrap}
+.pill{background:#ffffff16;border:1px solid #ffffff2b;padding:8px 12px;border-radius:12px;min-width:90px}
+.pill small{display:block;color:#bcd0e5;font-size:9px;text-transform:uppercase;letter-spacing:.08em}
+.pill b{font-size:16px}
+.wrap{max-width:1200px;margin:22px auto;padding:0 16px 40px}
+.intro{display:flex;justify-content:space-between;gap:15px;align-items:flex-start;margin-bottom:16px}
+.intro h2{margin:0 0 5px;font-size:22px}
+.intro p{margin:0;color:var(--muted);line-height:1.5}
+.roundtag{background:#fff;border:1px solid var(--line);border-radius:99px;padding:8px 13px;font-weight:700;color:var(--navy);white-space:nowrap;font-size:12px;box-shadow:0 2px 6px rgba(0,0,0,0.04)}
+.grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(260px,.8fr);gap:16px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 8px 25px #17365d0b;overflow:hidden}
+.panelhead{padding:15px 18px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px}
+.panelhead h3{margin:0;font-size:15px;display:flex;align-items:center;gap:8px}
+.panelhead span{color:var(--muted);font-size:12px}
+.map{position:relative;min-height:420px;overflow:hidden;background:linear-gradient(145deg,#d8edce,#b9d9bd 55%,#d7e9d7)}
 .map:before{content:"";position:absolute;inset:-30px;background:repeating-linear-gradient(35deg,transparent 0 54px,#ffffff38 55px 58px,transparent 59px 110px),repeating-linear-gradient(125deg,transparent 0 76px,#ffffff35 77px 80px,transparent 81px 150px);opacity:.8}
 .river{position:absolute;left:-5%;top:60%;width:115%;height:75px;background:#72c9e8;transform:rotate(-13deg);border:9px solid #a9e1ee;box-shadow:0 0 0 2px #58afd0}
-.road{position:absolute;height:13px;background:#e9e1c9;border:2px solid #c8b995;box-shadow:0 2px 3px #78908055}.road.r1{width:120%;left:-5%;top:39%;transform:rotate(-14deg)}.road.r2{width:105%;left:2%;top:72%;transform:rotate(12deg)}.rail{position:absolute;width:110%;left:-5%;top:53%;height:5px;border-top:3px dashed #536a79;transform:rotate(8deg)}
-.feature{position:absolute;text-align:center;font-size:12px;font-weight:800;color:#203c50;text-shadow:0 1px #fff;z-index:2}.feature .emoji{font-size:30px;display:block;filter:drop-shadow(0 3px 2px #29475b35)}.mine{left:6%;top:13%}.market{right:8%;top:12%}.workers{left:43%;top:6%}.cluster{right:8%;bottom:13%}
-.site{position:absolute;z-index:3;width:29%;min-width:105px;max-width:175px;transform:translate(-50%,-50%);border:2px solid #fff;border-radius:14px;background:#ffffffdf;padding:10px 8px;text-align:center;box-shadow:0 6px 15px #17365d30;backdrop-filter:blur(5px);transition:.2s}
+.road{position:absolute;height:13px;background:#e9e1c9;border:2px solid #c8b995;box-shadow:0 2px 3px #78908055}.road.r1{width:120%;left:-5%;top:39%;transform:rotate(-14deg)}.road.r2{width:105%;left:2%;top:72%;transform:rotate(12deg)}
+.rail{position:absolute;width:110%;left:-5%;top:53%;height:5px;border-top:3px dashed #536a79;transform:rotate(8deg)}
+.feature{position:absolute;text-align:center;font-size:11px;font-weight:800;color:#203c50;text-shadow:0 1px #fff;z-index:2;background:rgba(255,255,255,0.75);padding:4px 8px;border-radius:8px;box-shadow:0 3px 10px rgba(0,0,0,0.08);backdrop-filter:blur(4px)}
+.feature .emoji{font-size:24px;display:block;filter:drop-shadow(0 2px 2px rgba(0,0,0,0.15))}
+.mine{left:6%;top:10%}.market{right:6%;top:10%}.workers{left:41%;top:5%}.cluster{right:6%;bottom:10%}
+.site{position:absolute;z-index:3;width:29%;min-width:105px;max-width:170px;transform:translate(-50%,-50%);border:2px solid #fff;border-radius:14px;background:#ffffffea;padding:10px 8px;text-align:center;box-shadow:0 6px 18px #17365d35;backdrop-filter:blur(6px);transition:all .25s cubic-bezier(0.4, 0, 0.2, 1)}
 .site:nth-of-type(1){left:25%;top:43%}.site:nth-of-type(2){left:53%;top:58%}.site:nth-of-type(3){left:79%;top:43%}
-.site b{display:block;font-size:13px}.site small{font-size:10px;color:#52667b}.site .pin{font-size:24px;display:block}.site.selected{outline:4px solid var(--gold);transform:translate(-50%,-50%) scale(1.06);box-shadow:0 0 0 7px #ffc85742,0 8px 20px #17365d35}.site:focus-visible,button:focus-visible{outline:3px solid #ffb928;outline-offset:3px}
-.legend{position:absolute;left:12px;bottom:12px;background:#ffffffdf;border:1px solid #fff;border-radius:10px;padding:8px 10px;font-size:10px;color:#38516a;z-index:4}
-.side{display:flex;flex-direction:column;gap:16px}.factorlist{padding:14px 16px;display:grid;gap:12px}.factor{display:flex;gap:11px;align-items:center}.factor .ico{width:38px;height:38px;display:grid;place-items:center;background:#edf4fa;border-radius:12px;font-size:20px}.factor b{display:block;font-size:13px}.factor small{display:block;color:var(--muted);font-size:11px;line-height:1.4;margin-top:2px}.mission{padding:15px 17px;background:linear-gradient(135deg,#fff7df,#fff);border:1px solid #f3dfaa;border-radius:16px}.mission b{display:block;margin-bottom:5px}.mission p{font-size:12px;color:#6b5a34;line-height:1.5;margin:0}
-.locations{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:14px}.loc{border:1px solid var(--line);border-radius:14px;padding:13px;background:#fff;display:flex;flex-direction:column;gap:8px}.loc.active{border:2px solid #e5ad32;background:#fffaf0}.loc h4{margin:0;color:var(--navy)}.loc .sub{font-size:11px;color:var(--muted);min-height:30px}.costline{display:flex;justify-content:space-between;gap:5px;font-size:11px;color:#52657a}.costline strong{color:#213a56}.total{border-top:1px dashed var(--line);padding-top:8px;display:flex;justify-content:space-between;font-weight:800;font-size:13px}.choose{margin-top:auto;border:0;border-radius:9px;padding:10px;background:var(--navy2);color:#fff;font-weight:700;font-size:12px}.choose:hover{background:#245985}.choose:disabled{background:#aab7c5;cursor:not-allowed}
-.actionbar{padding:14px 16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.hint{font-size:12px;color:var(--muted)}.primary{border:0;background:var(--gold);color:#172b45;border-radius:10px;padding:11px 16px;font-weight:800}.primary:hover{background:#ffda78}.primary:disabled{opacity:.45;cursor:not-allowed}
-.feedback{margin:0 14px 14px;padding:14px;border-radius:12px;background:#edf8f1;border:1px solid #c7ead4;line-height:1.55;font-size:13px}.feedback.bad{background:#fff5e9;border-color:#f0d7b2}.feedback h4{margin:0 0 5px}.hidden{display:none!important}
-.footer-note{color:#73849a;font-size:11px;text-align:center;margin:16px 0}.modal{position:fixed;inset:0;background:#07182dcc;display:grid;place-items:center;padding:18px;z-index:20}.modalbox{background:#fff;border-radius:20px;max-width:480px;width:100%;padding:25px;text-align:center;box-shadow:0 20px 60px #0004}.modalbox h2{margin:8px 0}.modalbox p{color:var(--muted);line-height:1.55}.modalbox button{margin-top:10px}
-@media(max-width:760px){.grid{grid-template-columns:1fr}.map{min-height:360px}.locations{grid-template-columns:1fr}.loc .sub{min-height:0}.intro{flex-direction:column}.site{width:30%;min-width:90px}.site b{font-size:11px}.site small{font-size:9px}.feature .emoji{font-size:25px}.top{align-items:flex-start}.topstats{width:100%}.pill{flex:1}}
+.site:hover{transform:translate(-50%,-50%) scale(1.04);box-shadow:0 10px 25px rgba(23,54,93,0.25)}
+.site b{display:block;font-size:13px;color:var(--navy)}
+.site small{font-size:9.5px;color:#52667b;font-weight:500}
+.site .pin{font-size:22px;display:block;margin-bottom:2px}
+.site.selected{outline:3px solid var(--gold);transform:translate(-50%,-50%) scale(1.06);box-shadow:0 0 0 6px #ffc85745,0 12px 25px #17365d40;background:#fffdf5}
+.site:focus-visible,button:focus-visible{outline:3px solid #ffb928;outline-offset:3px}
+.legend{position:absolute;left:12px;bottom:12px;background:#ffffffea;border:1px solid #fff;border-radius:10px;padding:8px 10px;font-size:10px;color:#38516a;z-index:4;box-shadow:0 4px 12px rgba(0,0,0,0.08);backdrop-filter:blur(4px)}
+.side{display:flex;flex-direction:column;gap:16px}
+.factorlist{padding:14px 16px;display:grid;gap:12px}
+.factor{display:flex;gap:11px;align-items:flex-start}
+.factor .ico{width:36px;height:36px;display:grid;place-items:center;background:#edf4fa;border-radius:12px;font-size:18px;flex-shrink:0}
+.factor b{display:block;font-size:13px;color:var(--navy)}
+.factor small{display:block;color:var(--muted);font-size:11px;line-height:1.4;margin-top:2px}
+.mission{padding:15px 17px;background:linear-gradient(135deg,#fff7df,#fff);border:1px solid #f3dfaa;border-radius:16px}
+.mission b{display:block;margin-bottom:5px;color:#8f6b00;display:flex;align-items:center;gap:6px}
+.mission p{font-size:12px;color:#6b5a34;line-height:1.5;margin:0}
+.locations{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:14px}
+.loc{border:1px solid var(--line);border-radius:14px;padding:13px;background:#fff;display:flex;flex-direction:column;gap:8px;transition:all 0.2s}
+.loc:hover{border-color:#b9d0e8;box-shadow:0 4px 12px rgba(0,0,0,0.04)}
+.loc.active{border:2px solid #e5ad32;background:#fffaf0;box-shadow:0 6px 16px rgba(229,173,50,0.15)}
+.loc h4{margin:0;color:var(--navy);font-size:14px}
+.loc .sub{font-size:11px;color:var(--muted);min-height:30px;line-height:1.35}
+.costline{display:flex;justify-content:space-between;gap:5px;font-size:11px;color:#52657a}
+.costline strong{color:#213a56}
+.total{border-top:1px dashed var(--line);padding-top:8px;display:flex;justify-content:space-between;font-weight:800;font-size:13px;color:var(--navy)}
+.choose{margin-top:auto;border:0;border-radius:9px;padding:10px;background:var(--navy2);color:#fff;font-weight:700;font-size:12px;transition:background 0.2s}
+.choose:hover{background:#245985}
+.choose:disabled{background:#aab7c5;cursor:not-allowed}
+.actionbar{padding:14px 16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.hint{font-size:12px;color:var(--muted)}
+.primary{border:0;background:var(--gold);color:#172b45;border-radius:10px;padding:11px 18px;font-weight:800;font-size:13px;box-shadow:0 4px 12px rgba(255,200,87,0.35);transition:all 0.2s}
+.primary:hover{background:#ffda78;transform:translateY(-1px);box-shadow:0 6px 16px rgba(255,200,87,0.45)}
+.primary:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+.feedback{margin:0 14px 14px;padding:15px;border-radius:12px;background:#edf8f1;border:1px solid #c7ead4;line-height:1.55;font-size:13px}
+.feedback.bad{background:#fff5e9;border-color:#f0d7b2}
+.feedback h4{margin:0 0 6px;font-size:14px;display:flex;align-items:center;gap:6px}
+.hidden{display:none!important}
+.footer-note{color:#73849a;font-size:11px;text-align:center;margin:16px 0}
+.modal{position:fixed;inset:0;background:#07182dcc;display:grid;place-items:center;padding:18px;z-index:20;backdrop-filter:blur(5px);animation:fadeIn 0.3s ease}
+.modalbox{background:#fff;border-radius:20px;max-width:520px;width:100%;padding:30px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.3);animation:scaleUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)}
+.modalbox h2{margin:12px 0 8px;color:var(--navy);font-size:24px}
+.modalbox p{color:var(--muted);line-height:1.6;margin-bottom:20px;font-size:14px}
+.modalbox input{width:100%;padding:12px 16px;border:2px solid var(--line);border-radius:12px;font-size:15px;margin-bottom:16px;outline:none;transition:border-color 0.2s}
+.modalbox input:focus{border-color:var(--navy2)}
+.badges{display:flex;justify-content:center;gap:8px;margin:15px 0;flex-wrap:wrap}
+.badge{background:#edf4fa;border:1px solid #d0e1f2;padding:6px 12px;border-radius:99px;font-size:11px;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:5px}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes scaleUp{from{transform:scale(0.9);opacity:0}to{transform:scale(1);opacity:1}}
+@media(max-width:760px){.grid{grid-template-columns:1fr}.map{min-height:360px}.locations{grid-template-columns:1fr}.loc .sub{min-height:0}.intro{flex-direction:column}.site{width:30%;min-width:90px}.site b{font-size:11px}.site small{font-size:9px}.feature .emoji{font-size:22px}.top{align-items:flex-start}.topstats{width:100%}.pill{flex:1}}
 </style>
 </head>
 <body>
 <header class="top">
- <div class="brand"><div class="brand-icon">🏭</div><div><h1>WEBER'S INDUSTRIAL EMPIRE</h1><p>Build your factory. Choose your location. Minimize your costs.</p></div></div>
+ <div class="brand">
+  <div class="brand-icon">🏭</div>
+  <div>
+   <h1 id="brandTitle">WEBER'S EMPIRE</h1>
+   <p id="companySubtitle">Syarikat Perindustrian Utama</p>
+  </div>
+ </div>
  <div class="topstats">
-  <div class="pill"><small>Modal simulasi</small><b>RM100,000</b></div>
+  <div class="pill"><small>Modal Simulasi</small><b>RM100,000</b></div>
   <div class="pill"><small>Skor</small><b id="scoreTop">0 ⭐</b></div>
   <div class="pill"><small>Pusingan</small><b id="roundTop">1 / 3</b></div>
  </div>
 </header>
+
 <main class="wrap">
- <div class="intro"><div><h2 id="roundTitle">Misi 1: Kilang makanan</h2><p id="scenario">Pilih tapak kilang yang paling menjimatkan kos keseluruhan.</p></div><div class="roundtag" id="progress">MISI 1 DARIPADA 3</div></div>
+ <div class="intro">
+  <div>
+   <h2 id="roundTitle">Misi 1: Kilang makanan</h2>
+   <p id="scenario">Pilih tapak kilang yang paling menjimatkan kos keseluruhan.</p>
+  </div>
+  <div class="roundtag" id="progress">MISI 1 DARIPADA 3</div>
+ </div>
+
  <div class="grid">
   <section class="panel">
-   <div class="panelhead"><h3>🗺️ Peta Wilayah Perindustrian</h3><span>Ilustrasi simulasi</span></div>
-   <div class="map" aria-label="Peta isometrik ilustrasi kawasan industri">
-    <div class="river"></div><div class="road r1"></div><div class="road r2"></div><div class="rail"></div>
+   <div class="panelhead">
+    <h3>🗺️ Peta Wilayah Perindustrian</h3>
+    <span>Klik lokasi untuk pilih</span>
+   </div>
+   <div class="map" id="mapArea" aria-label="Peta isometrik ilustrasi kawasan industri">
+    <div class="river"></div>
+    <div class="road r1"></div>
+    <div class="road r2"></div>
+    <div class="rail"></div>
+    
+    <!-- SVG Connection Lines Layer -->
+    <svg id="routeLines" style="position:absolute; inset:0; width:100%; height:100%; z-index:1; pointer-events:none;"></svg>
+
     <div class="feature mine"><span class="emoji">⛏️</span>Bahan mentah</div>
     <div class="feature workers"><span class="emoji">👷</span>Tenaga buruh</div>
     <div class="feature market"><span class="emoji">🏙️</span>Pasaran</div>
     <div class="feature cluster"><span class="emoji">🏭🏭</span>Kluster industri</div>
+
     <button class="site" data-site="0" onclick="selectSite(0)"><span class="pin">🟡</span><b>LOKASI A</b><small>Dekat bahan mentah</small></button>
     <button class="site" data-site="1" onclick="selectSite(1)"><span class="pin">🔵</span><b>LOKASI B</b><small>Dekat pasaran</small></button>
     <button class="site" data-site="2" onclick="selectSite(2)"><span class="pin">🟣</span><b>LOKASI C</b><small>Kluster industri</small></button>
     <div class="legend">🚚 Jalan raya &nbsp; ┄ Rel kereta api &nbsp; 🌊 Sungai</div>
    </div>
-   <div class="panelhead"><h3>📍 Bandingkan pilihan lokasi</h3><span>Semua nilai dalam RM</span></div>
+   <div class="panelhead">
+    <h3>📍 Bandingkan Pilihan Lokasi</h3>
+    <span>Semua nilai dalam RM</span>
+   </div>
    <div class="locations" id="locationCards"></div>
-   <div class="actionbar"><span class="hint" id="selectionHint">Pilih satu lokasi pada peta atau kad.</span><button class="primary" id="confirmBtn" onclick="confirmChoice()" disabled>Sahkan pilihan lokasi →</button></div>
+   <div class="actionbar">
+    <span class="hint" id="selectionHint">Pilih satu lokasi pada peta atau kad di atas.</span>
+    <button class="primary" id="confirmBtn" onclick="confirmChoice()" disabled>Sahkan pilihan lokasi →</button>
+   </div>
    <div id="feedback" class="feedback hidden" aria-live="polite"></div>
   </section>
+
   <aside class="side">
-   <section class="panel"><div class="panelhead"><h3>🧭 Tiga faktor Weber</h3></div>
+   <section class="panel">
+    <div class="panelhead"><h3>🧭 Tiga Faktor Weber</h3><span>Teori 1909</span></div>
     <div class="factorlist">
-     <div class="factor"><div class="ico">🚚</div><div><b>Kos pengangkutan</b><small>Kos membawa input ke kilang dan produk ke pasaran.</small></div></div>
-     <div class="factor"><div class="ico">👷</div><div><b>Kos buruh</b><small>Perbezaan upah pekerja antara kawasan.</small></div></div>
-     <div class="factor"><div class="ico">🏭</div><div><b>Aglomerasi</b><small>Penjimatan kerana berhampiran industri dan perkhidmatan sokongan.</small></div></div>
+     <div class="factor">
+      <div class="ico">🚚</div>
+      <div><b>Kos Pengangkutan</b><small>Kos membawa bahan mentah ke kilang dan produk siap ke pasaran.</small></div>
+     </div>
+     <div class="factor">
+      <div class="ico">👷</div>
+      <div><b>Kos Buruh</b><small>Perbezaan kadar upah pekerja antara wilayah geografi.</small></div>
+     </div>
+     <div class="factor">
+      <div class="ico">🏭</div>
+      <div><b>Aglomerasi</b><small>Penjimatan kos akibat pengelompokan industri & perkhidmatan sokongan.</small></div>
+     </div>
     </div>
    </section>
-   <section class="mission"><b>💡 Objektif misi</b><p>Pilih lokasi dengan jumlah kos bersih terendah. Formula simulasi: kos pengangkutan + kos buruh − penjimatan aglomerasi.</p></section>
-   <section class="panel"><div class="panelhead"><h3>📈 Rekod prestasi</h3></div><div class="factorlist">
-    <div class="costline"><span>Misi selesai</span><strong id="done">0 / 3</strong></div>
-    <div class="costline"><span>Jawapan optimum</span><strong id="correct">0</strong></div>
-    <div class="costline"><span>Markah terkumpul</span><strong id="scoreSide">0 / 300</strong></div>
-   </div></section>
+
+   <section class="mission">
+    <b>💡 Objektif & Formula Misi</b>
+    <p>Minimumkan kos bersih keseluruhan dengan mengimbangi ketiga-tiga faktor Weber.<br><b>Formula:</b> Pengangkutan + Buruh − Aglomerasi</p>
+   </section>
+
+   <section class="panel">
+    <div class="panelhead"><h3>📈 Rekod Prestasi</h3></div>
+    <div class="factorlist">
+     <div class="costline"><span>Misi selesai</span><strong id="done">0 / 3</strong></div>
+     <div class="costline"><span>Jawapan optimum</span><strong id="correct">0</strong></div>
+     <div class="costline"><span>Markah terkumpul</span><strong id="scoreSide">0 / 300</strong></div>
+    </div>
+   </section>
   </aside>
  </div>
- <p class="footer-note">Bahan pembelajaran: Model Lokasi Perindustrian Alfred Weber (1909). Semua kos dan lokasi dalam permainan ialah data rekaan untuk tujuan simulasi.</p>
+ <p class="footer-note">Model Lokasi Perindustrian Alfred Weber (1909) • Dibangunkan untuk Pembelajaran Ekonomi Pembangunan & Geografi Ekonomi.</p>
 </main>
-<div id="endModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="endTitle"><div class="modalbox"><div style="font-size:48px">🏆</div><h2 id="endTitle">Simulasi selesai!</h2><p id="endText"></p><button class="primary" onclick="restart()">Main semula</button></div></div>
+
+<!-- Start Modal for Company Name -->
+<div id="startModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="startTitle">
+ <div class="modalbox">
+  <div style="font-size:52px">🏗️</div>
+  <h2 id="startTitle">Weber's Industrial Empire</h2>
+  <p>Selamat datang! Masukkan nama syarikat industri anda untuk memulakan cabaran simulasi lokasi perindustrian.</p>
+  <input type="text" id="companyNameInput" placeholder="Cth: Syarikat Maju Cemerlang" value="Syarikat Idaman">
+  <button class="primary" style="width:100%; padding:14px;" onclick="startSimulation()">Mula Simulasi Sekarang →</button>
+ </div>
+</div>
+
+<!-- End Modal -->
+<div id="endModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="endTitle">
+ <div class="modalbox">
+  <div style="font-size:52px" id="endIcon">🏆</div>
+  <h2 id="endTitle">Simulasi Selesai!</h2>
+  <p id="endText"></p>
+  <div class="badges" id="endBadges"></div>
+  <button class="primary" style="width:100%; padding:14px;" onclick="restart()">Main Semula Cabaran</button>
+ </div>
+</div>
+
 <script>
 const missions=[
- {title:"Misi 1: Kilang makanan",scenario:"Bahan mentah pertanian banyak di kawasan luar bandar. Pilih lokasi yang meminimumkan jumlah kos bersih.",sites:[
-  {name:"Lokasi A",desc:"Berhampiran sumber bahan mentah",transport:18000,labor:24000,saving:3000},
-  {name:"Lokasi B",desc:"Berhampiran pasaran pengguna",transport:26000,labor:19000,saving:5000},
-  {name:"Lokasi C",desc:"Berhampiran kluster industri",transport:22000,labor:22000,saving:9000}]},
- {title:"Misi 2: Kilang elektronik",scenario:"Kilang memerlukan pembekal komponen, kemudahan logistik dan pekerja mahir. Nilai manfaat aglomerasi.",sites:[
-  {name:"Lokasi A",desc:"Dekat sumber bahan mentah",transport:24000,labor:20000,saving:2000},
-  {name:"Lokasi B",desc:"Dekat pasaran dan pelabuhan",transport:16000,labor:25000,saving:4000},
-  {name:"Lokasi C",desc:"Dekat pembekal dan industri sokongan",transport:19000,labor:21000,saving:8000}]},
- {title:"Misi 3: Kilang tekstil",scenario:"Industri tekstil menggunakan ramai pekerja. Bandingkan kos buruh dengan kos pengangkutan dan penjimatan aglomerasi.",sites:[
-  {name:"Lokasi A",desc:"Dekat sumber gentian",transport:17000,labor:28000,saving:3000},
-  {name:"Lokasi B",desc:"Dekat pasaran bandar",transport:21000,labor:17000,saving:4000},
-  {name:"Lokasi C",desc:"Dekat kluster tekstil",transport:19000,labor:21000,saving:7000}]}
+ {title:"Misi 1: Kilang Makanan",scenario:"Bahan mentah pertanian banyak di kawasan luar bandar dan mudah susut berat. Pilih lokasi optimum yang meminimumkan jumlah kos bersih.",sites:[
+  {name:"Lokasi A",desc:"Berhampiran sumber bahan mentah",transport:18000,labor:24000,saving:3000,x:25,y:43},
+  {name:"Lokasi B",desc:"Berhampiran pasaran pengguna",transport:26000,labor:19000,saving:5000,x:53,y:58},
+  {name:"Lokasi C",desc:"Berhampiran kluster industri",transport:22000,labor:22000,saving:9000,x:79,y:43}]},
+ {title:"Misi 2: Kilang Elektronik",scenario:"Kilang memerlukan pembekal komponen berteknologi, logistik pantas dan tenaga kerja berkemahiran tinggi. Utamakan manfaat aglomerasi.",sites:[
+  {name:"Lokasi A",desc:"Dekat sumber bahan mentah",transport:24000,labor:20000,saving:2000,x:25,y:43},
+  {name:"Lokasi B",desc:"Dekat pasaran dan pelabuhan",transport:16000,labor:25000,saving:4000,x:53,y:58},
+  {name:"Lokasi C",desc:"Dekat pembekal dan industri sokongan",transport:19000,labor:21000,saving:8000,x:79,y:43}]},
+ {title:"Misi 3: Kilang Tekstil",scenario:"Industri tekstil insentif buruh memerlukan ramai pekerja dengan upah kompetitif. Bandingkan kos buruh dengan penjimatan kluster.",sites:[
+  {name:"Lokasi A",desc:"Dekat sumber gentian mentah",transport:17000,labor:28000,saving:3000,x:25,y:43},
+  {name:"Lokasi B",desc:"Dekat pasaran bandar utama",transport:21000,labor:17000,saving:4000,x:53,y:58},
+  {name:"Lokasi C",desc:"Dekat kluster tekstil sedia ada",transport:19000,labor:21000,saving:7000,x:79,y:43}]}
 ];
-let round=0,score=0,correct=0,selected=null,answered=false;
+
+let round=0,score=0,correct=0,selected=null,answered=false, companyName="Syarikat Idaman";
 const money=n=>"RM"+n.toLocaleString("en-MY");
 const net=s=>s.transport+s.labor-s.saving;
+
+function startSimulation(){
+ const input = document.getElementById("companyNameInput").value.trim();
+ if(input) companyName = input;
+ document.getElementById("companySubtitle").textContent = companyName;
+ document.getElementById("startModal").classList.add("hidden");
+ render();
+}
+
 function render(){
  const m=missions[round];selected=null;answered=false;
  document.getElementById("roundTitle").textContent=m.title;
  document.getElementById("scenario").textContent=m.scenario;
  document.getElementById("roundTop").textContent=(round+1)+" / 3";
  document.getElementById("progress").textContent="MISI "+(round+1)+" DARIPADA 3";
- document.getElementById("confirmBtn").disabled=true;
- document.getElementById("confirmBtn").textContent="Sahkan pilihan lokasi →";
- document.getElementById("selectionHint").textContent="Pilih satu lokasi pada peta atau kad.";
+ 
+ const btn = document.getElementById("confirmBtn");
+ btn.disabled = true;
+ btn.textContent = "Sahkan Pilihan Lokasi →";
+ btn.onclick = confirmChoice;
+
+ document.getElementById("selectionHint").textContent="Pilih satu lokasi pada peta atau kad di bawah.";
  document.getElementById("feedback").classList.add("hidden");
- document.querySelectorAll(".site").forEach((el,i)=>{el.classList.remove("selected");el.disabled=false;el.setAttribute("aria-pressed","false")});
+ document.getElementById("routeLines").innerHTML="";
+
+ document.querySelectorAll(".site").forEach((el,i)=>{
+  el.classList.remove("selected");
+  el.disabled=false;
+  el.setAttribute("aria-pressed","false");
+ });
+
  document.getElementById("locationCards").innerHTML=m.sites.map((s,i)=>`
  <article class="loc" id="card${i}">
   <h4>${s.name}</h4><div class="sub">${s.desc}</div>
   <div class="costline"><span>🚚 Pengangkutan</span><strong>${money(s.transport)}</strong></div>
   <div class="costline"><span>👷 Buruh</span><strong>${money(s.labor)}</strong></div>
-  <div class="costline"><span>🏭 Penjimatan aglomerasi</span><strong>−${money(s.saving)}</strong></div>
-  <div class="total"><span>Jumlah kos bersih</span><span>${money(net(s))}</span></div>
-  <button class="choose" onclick="selectSite(${i})" id="choose${i}">Pilih lokasi ini</button>
+  <div class="costline"><span>🏭 Aglomerasi</span><strong>−${money(s.saving)}</strong></div>
+  <div class="total"><span>Jumlah Kos Bersih</span><span>${money(net(s))}</span></div>
+  <button class="choose" onclick="selectSite(${i})" id="choose${i}">Pilih Lokasi Ini</button>
  </article>`).join("");
  updateStats();
 }
+
+function drawRouteLines(siteIdx){
+ const m = missions[round];
+ const s = m.sites[siteIdx];
+ // Map dimensions approx 100% width x height
+ // Let's draw lines from Mine (approx 12%, 18%), Market (approx 88%, 18%), Cluster (approx 88%, 85%) to Site (s.x%, s.y%)
+ const sx = s.x, sy = s.y;
+ const mineX = 12, mineY = 18;
+ const marketX = 88, marketY = 18;
+ const clusterX = 88, clusterY = 85;
+
+ const svg = document.getElementById("routeLines");
+ svg.innerHTML = `
+  <line x1="${mineX}%" y1="${mineY}%" x2="${sx}%" y2="${sy}%" stroke="#10233f" stroke-width="2.5" stroke-dasharray="5,5" opacity="0.6"/>
+  <line x1="${marketX}%" y1="${marketY}%" x2="${sx}%" y2="${sy}%" stroke="#18385d" stroke-width="2.5" stroke-dasharray="5,5" opacity="0.6"/>
+  <line x1="${clusterX}%" y1="${clusterY}%" x2="${sx}%" y2="${sy}%" stroke="#64d69a" stroke-width="2.5" opacity="0.7"/>
+  <circle cx="${sx}%" cy="${sy}%" r="14" fill="none" stroke="#ffc857" stroke-width="3">
+   <animate attributeName="r" values="8;20;8" dur="1.5s" repeatCount="indefinite"/>
+   <animate attributeName="opacity" values="1;0;1" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+ `;
+}
+
 function selectSite(i){
  if(answered)return;
  selected=i;
- document.querySelectorAll(".site").forEach((el,j)=>{el.classList.toggle("selected",j===i);el.setAttribute("aria-pressed",j===i?"true":"false")});
+ document.querySelectorAll(".site").forEach((el,j)=>{
+  el.classList.toggle("selected",j===i);
+  el.setAttribute("aria-pressed",j===i?"true":"false");
+ });
  document.querySelectorAll(".loc").forEach((el,j)=>el.classList.toggle("active",j===i));
  document.getElementById("confirmBtn").disabled=false;
- document.getElementById("selectionHint").textContent=missions[round].sites[i].name+" dipilih. Sahkan apabila bersedia.";
+ document.getElementById("selectionHint").textContent=missions[round].sites[i].name+" dipilih. Klik 'Sahkan' apabila bersedia.";
+ drawRouteLines(i);
 }
+
 function confirmChoice(){
  if(selected===null||answered)return;
  answered=true;
- const m=missions[round],costs=m.sites.map(net),min=Math.min(...costs),best=costs.indexOf(min),chosen=m.sites[selected],isCorrect=selected===best;
+ const m=missions[round], costs=m.sites.map(net), min=Math.min(...costs), best=costs.indexOf(min), chosen=m.sites[selected], isCorrect=selected===best;
  if(isCorrect){score+=100;correct++}
  document.querySelectorAll(".choose").forEach(b=>b.disabled=true);
  document.querySelectorAll(".site").forEach(b=>b.disabled=true);
- document.getElementById("confirmBtn").disabled=true;
- document.getElementById("confirmBtn").textContent=round===2?"Lihat keputusan akhir":"Misi seterusnya →";
- document.getElementById("confirmBtn").onclick=next;
+ 
+ const btn = document.getElementById("confirmBtn");
+ btn.disabled = false;
+ btn.textContent = round===2 ? "Lihat Keputusan Akhir →" : "Misi Seterusnya →";
+ btn.onclick = next;
+
  const fb=document.getElementById("feedback");
  fb.className="feedback"+(isCorrect?"":" bad");
- fb.innerHTML=`<h4>${isCorrect?"🎉 Tepat! Lokasi optimum dipilih.":"📘 Belajar daripada keputusan ini"}</h4>
- <p>Anda memilih <b>${chosen.name}</b> dengan kos bersih <b>${money(net(chosen))}</b>.</p>
- <p>Lokasi kos terendah ialah <b>${m.sites[best].name}</b> (${money(min)}). ${isCorrect?"Pilihan anda meminimumkan jumlah kos bersih.":"Bandingkan ketiga-tiga komponen kos sebelum membuat keputusan."}</p>
- <p><b>Pengiraan:</b> ${money(chosen.transport)} + ${money(chosen.labor)} − ${money(chosen.saving)} = <b>${money(net(chosen))}</b>.</p>
- <p>Ingat: aglomerasi memberi penjimatan melalui pengelompokan industri. Dalam model ringkas ini, penjimatan tersebut ditolak daripada kos pengangkutan dan buruh.</p>`;
+ fb.innerHTML=`<h4>${isCorrect?"🎉 Tepat! Lokasi Optimum Dipilih.":"📘 Analisis Keputusan Ini"}</h4>
+ <p><b>${companyName}</b> memilih <b>${chosen.name}</b> dengan jumlah kos bersih <b>${money(net(chosen))}</b>.</p>
+ <p>Lokasi kos terendah yang sebenar ialah <b>${m.sites[best].name}</b> (${money(min)}). ${isCorrect?"Pilihan anda berjaya meminimumkan jumlah kos keseluruhan Weber!":"Kombinasi kos pengangkutan, buruh dan aglomerasi di lokasi lain lebih efisien."}</p>
+ <p><b>Pengiraan Terperinci:</b> Pengangkutan (${money(chosen.transport)}) + Buruh (${money(chosen.labor)}) − Aglomerasi (${money(chosen.saving)}) = <b>${money(net(chosen))}</b>.</p>`;
  updateStats();
 }
+
 function updateStats(){
  document.getElementById("scoreTop").textContent=score+" ⭐";
  document.getElementById("scoreSide").textContent=score+" / 300";
  document.getElementById("done").textContent=(answered?round+1:round)+" / 3";
  document.getElementById("correct").textContent=correct;
 }
+
 function next(){
- if(round<2){round++;render()}else{
- document.getElementById("endTitle").textContent="Simulasi selesai!";
- document.getElementById("endText").textContent=`Markah anda ${score} daripada 300. Anda berjaya memilih ${correct} daripada 3 lokasi optimum. Ingat tiga faktor Weber: kos pengangkutan, kos buruh dan aglomerasi ekonomi.`;
- document.getElementById("endModal").classList.remove("hidden");
- }}
+ if(round<2){
+  round++;
+  render();
+ } else {
+  let badgeHtml = "";
+  if(correct === 3) {
+   badgeHtml = `<span class="badge">🌟 Pakar Weber Sejati</span><span class="badge">🏆 Mahir Strategi Industri</span>`;
+  } else if(correct >= 1) {
+   badgeHtml = `<span class="badge">💡 Ahli Strategi Ekonomi</span>`;
+  } else {
+   badgeHtml = `<span class="badge">📚 Perlu Ulang Kaji Teori</span>`;
+  }
+  document.getElementById("endIcon").textContent = correct === 3 ? "🏆" : (correct >= 2 ? "🎯" : "📈");
+  document.getElementById("endTitle").textContent = "Simulasi Selesai, " + companyName + "!";
+  document.getElementById("endText").textContent = `Anda memperoleh ${score} daripada 300 markah dan berjaya mengenal pasti ${correct} daripada 3 lokasi optimum mengikut Model Alfred Weber (1909).`;
+  document.getElementById("endBadges").innerHTML = badgeHtml;
+  document.getElementById("endModal").classList.remove("hidden");
+ }
+}
+
 function restart(){
  round=0;score=0;correct=0;
  document.getElementById("endModal").classList.add("hidden");
- document.getElementById("confirmBtn").onclick=confirmChoice;
  render();
 }
-render();
 </script>
 </body>
 </html>
